@@ -1,0 +1,252 @@
+\documentclass[10pt,a4paper,]{abntex2}
+
+\usepackage{amsmath}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{indentfirst}
+\usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
+
+\OnehalfSpacing
+
+% Permitir capítulos começarem em qualquer página
+\openany
+
+\titulo{IMPLEMENTAÇÃO DE CLUSTER DE INTELIGÊNCIA ARTIFICIAL GENERATIVA NO SENAI/SESI EM SANTA CATARINA
+\\Projeto / Proposta para Parcerias
+}
+
+\autor{
+    SENAI -- Serviço Nacional de Aprendizagem Industrial\\
+}
+\local{Joinville -- SC}
+\data{2026}
+\instituicao{Bruno José da Silva Batista\\
+Desenvolvedor de Software\\
+bruno.batista@edu.sc.senai.br
+}
+
+\tipotrabalho{}
+\preambulo{Proposta para criação de infraestrutura física para cluster de Inteligência Artificial destinada ao ensino de Desenvolvimento de Sistemas e áreas correlatas no SENAI Santa Catarina.\\
+}
+
+\begin{document}
+
+% Capa
+%\imprimircapa
+
+% Folha de rosto
+\imprimirfolhaderosto*
+
+% Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\clearpage
+
+\pagenumbering{arabic}
+
+% -------------------------
+\chapter{Introdução}
+
+A Inteligência Artificial Generativa deixou de ser uma tecnologia emergente para se tornar um componente estrutural no processo contemporâneo de desenvolvimento de sistemas. Atualmente, Large Language Models (LLMs) são empregados em todas as fases do ciclo de vida do software:
+
+\begin{itemize}
+\item Levantamento e refinamento de requisitos
+\item Geração automatizada de código
+\item Criação de testes unitários
+\item Documentação técnica
+\item Revisão e refatoração de código
+\item Prototipagem rápida
+\item Desenvolvimento de APIs
+\item Automação de processos
+\item Construção de agentes inteligentes
+\end{itemize}
+
+Empresas globais incorporaram soluções baseadas em modelos de linguagem aos seus fluxos de engenharia, impactando produtividade, qualidade técnica e redução de tempo de entrega.
+
+Para aproximadamente 3.000 alunos do SENAI Santa Catarina nas áreas de Desenvolvimento de Sistemas, Análise e Desenvolvimento de Sistemas, Tecnologia da Informação, Programação, Automação Industrial e áreas correlatas, a ausência de infraestrutura prática voltada ao uso de IA generativa pode tornar o processo formativo defasado frente às exigências do mercado.
+
+O desenvolvedor contemporâneo precisa saber:
+
+\begin{itemize}
+\item Integrar APIs de LLM
+\item Construir agentes de IA
+\item Utilizar geração assistida de código
+\item Aplicar IA para debugging
+\item Trabalhar com RAG (Retrieval Augmented Generation)
+\item Projetar soluções híbridas entre software tradicional e IA
+\end{itemize}
+
+Este projeto visa garantir que o processo de formação permaneça alinhado à transformação digital já consolidada no setor produtivo.
+
+% -------------------------
+\chapter{Objetivos}
+
+\section{Objetivo Geral}
+
+Implantar infraestrutura própria de IA generativa para criação de API keys educacionais destinadas à formação prática em desenvolvimento de sistemas.
+
+\section{Objetivos Específicos}
+
+\begin{itemize}
+\item Prover ambiente controlado para uso de LLMs open-source
+\item Reduzir dependência de APIs comerciais
+\item Permitir uso educacional ilimitado
+\item Estimular desenvolvimento de agentes e aplicações reais
+\item Promover independência tecnológica institucional
+\end{itemize}
+
+% -------------------------
+\chapter{Arquitetura Proposta}
+
+Infraestrutura composta por:
+\begin{itemize}
+\item 4 servidores GPU de alto desempenho
+\item 1 blade corporativo para orquestração
+\item Balanceamento de carga
+\item Backend com LLMs open-source
+\item Portal próprio para geração de API keys
+\end{itemize}
+
+Especificações principais:
+
+\begin{itemize}
+\item AMD Ryzen Threadripper PRO 7965WX
+\item ASUS Pro WS WRX90E-SAGE
+\item 4× NVIDIA GeForce RTX 4090 Gaming OC 24GB por máquina
+\end{itemize}
+
+\section{Especificação e Custo por Máquina}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Componente} & \textbf{Valor Estimado} \\
+\hline
+CPU & R\$ 23.000,00 \\
+Placa-mãe & R\$ 16.600,00 \\
+4 GPUs & R\$ 72.000,00 \\
+RAM 256GB & R\$ 30.000,00 \\
+Armazenamento & R\$ 15.000,00 \\
+Infraestrutura elétrica & R\$ 8.000,00 \\
+\hline
+\textbf{Total por máquina} & \textbf{R\$ 164.600,00} \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Investimento total (4 máquinas): R\$ 658.400,00.}
+
+\section{Blade Corporativo}
+
+Integração com soluções como IBM BladeCenter, Hewlett Packard Enterprise ou Dell Technologies.
+
+Estimativa: R\$ 90.000,00 a R\$ 120.000,00.
+
+\textbf{Investimento total estimado do projeto: aproximadamente R\$ 750.000,00.}
+
+\section{Capacidade Operacional}
+
+Cada servidor com quatro RTX 4090 permite aproximadamente 150 usuários simultâneos (modelo Llama3 13B) ou até 180 usuários simultâneos (modelo Llama3 7B).
+
+Cluster com quatro máquinas: capacidade estimada entre 600 e 720 usuários simultâneos.
+
+Considerando simultaneidade média de 20\% a 25\% em ambiente educacional, a capacidade é adequada para atender 3.000 alunos.
+
+% -------------------------
+\chapter{Justificativa Econômica}
+
+Modelo baseado exclusivamente em APIs comerciais apresenta estimativa média de R\$ 40 por aluno/mês.
+
+Considerando 3.000 alunos durante 12 meses, o custo anual estimado é de R\$ 1.440.000,00.
+
+Modelo com cluster próprio apresenta investimento aproximado de R\$ 750.000,00, com custos recorrentes limitados a energia e manutenção.
+
+\textbf{Payback estimado: 12 meses.}
+
+% -------------------------
+\chapter{Motivação da Parceria -- Visão Estratégica}
+
+O projeto prevê uma identidade visual do cluster como:
+
+\textit{“Cluster IA Generativa – Powered by [Empresa Parceira]”.}
+
+A identificação ocorrerá:
+\begin{itemize}
+\item No ambiente físico
+\item No portal de APIs (descrita no item 5.2)
+\item Em comunicações institucionais
+\item Em eventos técnicos
+\end{itemize}
+
+\section{Divulgação Institucional}
+
+Divulgação por meio do portal institucional do SENAI SC, portais regionais, comunicados ao setor industrial, eventos tecnológicos e redes sociais oficiais.
+
+\section{Portal de Gerenciamento de API Keys}
+
+Será desenvolvido portal dedicado para geração de API keys, monitoramento de uso, documentação técnica e dashboard de consumo.
+
+O portal contará com:
+\begin{itemize}
+\item Co-branding institucional
+\item Logotipo da empresa parceira
+\item Reconhecimento formal da parceria
+\end{itemize}
+
+
+Cada aluno terá contato recorrente com a marca durante sua formação.
+Esse mecanismo promove:
+\begin{itemize}
+    \item Exposição contínua
+    \item Fortalecimento de marca
+    \item Remarketing orgânico
+    \item Associação direta com inovação
+\end{itemize}
+
+\section{Impacto de Longo Prazo}
+Os 3.000 alunos anuais representam futuros:
+\begin{itemize}
+    \item Desenvolvedores
+    \item Arquitetos de software
+    \item Líderes técnicos
+    \item Empreendedores
+    \item Decisores de compra
+\end{itemize}
+
+A presença institucional da empresa parceira durante a formação desses profissionais cria vínculo estratégico duradouro.
+
+% -------------------------
+\chapter{Conclusão}
+
+A Inteligência Artificial Generativa já integra o processo moderno de desenvolvimento de sistemas.
+Não preparar os alunos para utilizar essas ferramentas de maneira técnica e estratégica compromete a aderência do processo educacional às exigências do mercado.
+
+O cluster próprio de IA generativa:
+\begin{itemize}
+    \item Atualiza o ambiente formativo
+    \item Garante independência tecnológica
+    \item Proporciona economia estrutural
+    \item Sustenta crescimento futuro
+    \item Consolida posicionamento institucional
+\end{itemize}
+
+Do ponto de vista financeiro, o investimento apresenta racional claro, com payback inferior a 12 meses quando comparado ao custo recorrente de APIs comerciais.
+Do ponto de vista estratégico, assegura alinhamento com a transformação digital da indústria.
+
+Para a empresa parceira, o projeto oferece:
+\begin{itemize}
+    \item Visibilidade estadual
+    \item Associação direta com inovação
+    \item Exposição contínua a 3.000 alunos por ano
+    \item Inserção no ecossistema industrial catarinense
+    \item Posicionamento como protagonista em educação tecnológica
+\end{itemize}
+
+A decisão de implantar o cluster não é apenas técnica ou financeira. É estratégica.
+\\Ela garante que o SENAI Santa Catarina continue formando profissionais preparados para um mercado no qual a IA generativa já é parte integrante da engenharia de software.
+
+\end{document}
