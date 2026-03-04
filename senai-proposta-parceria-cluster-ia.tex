@@ -5,6 +5,7 @@
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}
+\usepackage{graphicx}
 \usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
 
 \input{vars.tex}
@@ -39,7 +40,19 @@
 %\imprimircapa
 
 % Folha de rosto
-\imprimirfolhaderosto*
+\pretextual
+
+\begin{folhaderosto}
+
+\begin{center}
+\includegraphics[width=5cm]{senai_logo.png}
+\end{center}
+
+\vspace{1cm}
+
+\folhaderostocontent
+
+\end{folhaderosto}
 
 % Sumário
 \pdfbookmark[0]{\contentsname}{toc}
