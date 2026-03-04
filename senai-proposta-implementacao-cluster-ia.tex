@@ -95,10 +95,114 @@ Implantar infraestrutura própria de IA generativa para criação de API keys ed
 \item Promover independência tecnológica institucional
 \end{itemize}
 
-% -------------------------
-\chapter{Arquitetura Proposta}
+\chapter{Análise Comparativa de Modelos de Infraestrutura para LLM's}
 
-Infraestrutura composta por:
+Este capítulo apresenta análise comparativa entre três abordagens possíveis para disponibilização de Large Language Models (LLMs):
+
+\begin{itemize}
+\item Uso de API's comerciais
+\item LLM'ss open-source self-hosted na AWS
+\item Cluster próprio on-premise
+\end{itemize}
+
+\section{API's comerciais: ChatGPT, Claude, Gemini e afins}
+API's comerciais apresenta estimativa média de R\$ 40 por aluno/mês.
+
+Considerando 3.000 alunos durante 12 meses, o custo anual estimado é de R\$ 1.440.000,00.
+
+\section{LLM's Open-Source Self-Hosted na AWS}
+
+Com LLMs open-source self-hosted o custo direto de utilização de APIs comerciais de modelos de linguagem é eliminado. Contudo, a utilização de GPUs sob demanda, aliada aos demais serviços da Amazon Web Services (AWS), torna a abordagem totalmente baseada em nuvem significativamente onerosa.
+
+\subsection{Demanda por Usuários}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Variável} & \textbf{Valor} \\
+\hline
+Usuários & 3.000 \\
+Requests por dia por usuário & $\sim$20 \\
+Volume mensal estimado & $\sim$1,8M requests \\
+Tokens médios por request & $\sim$2.000 tokens \\
+Custo de LLM externo & US\$ 0 \\
+GPU necessária & EC2 G5 / P4d (NVIDIA A10G / A100) \\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+\subsection{Dimensionamento de Infra de GPU e Serviços Auxiliares On-Demand}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Modelo} & \textbf{VRAM necessária} & \textbf{Instância AWS} & \textbf{Throughput} \\
+\hline
+Llama 3.1 8B (leve) & $\sim$16 GB & g5.xlarge (1× A10G 24GB) & $\sim$800 tok/s \\
+Llama 3.3 70B (principal) & $\sim$140 GB & g5.48xlarge (8× A10G) & $\sim$400 tok/s \\
+DeepSeek R1 70B (distill) & $\sim$140 GB & g5.48xlarge (8× A10G) & $\sim$350 tok/s \\
+DeepSeek R1 671B (full) & $\sim$320 GB+ & p4d.24xlarge (8× A100 80GB) & $\sim$140 tok/s \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Instância} & \textbf{Uso} & \textbf{GPUs} & \textbf{Custo/h} & \textbf{Custo/mês} \\
+\hline
+g5.48xlarge ×2 & Llama 70B + DeepSeek 70B & 8× A10G cada & $\sim$US\$16,29 & $\sim$US\$24.240 \\
+g5.xlarge ×2 & Llama 8B (routing leve) & 1× A10G cada & $\sim$US\$1,006 & $\sim$US\$1.497 \\
+\hline
+\textbf{Subtotal GPU} & & & & \textbf{$\sim$US\$25.737/mês} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Serviço} & \textbf{Custo estimado/mês} \\
+\hline
+ECS Fargate (gateway) & US\$ 60 \\
+RDS PostgreSQL & US\$ 130 \\
+ElastiCache Redis & US\$ 120 \\
+API Gateway & US\$ 6 \\
+Application Load Balancer & US\$ 35 \\
+CloudWatch + Logs & US\$ 60 \\
+Secrets Manager & US\$ 5 \\
+NAT Gateway & US\$ 70 \\
+S3 (modelos + logs) & US\$ 80 \\
+\hline
+\textbf{Subtotal suporte} & \textbf{$\sim$US\$566/mês} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Categoria} & \textbf{Custo estimado/mês} \\
+\hline
+Infra base (CPU/rede/DB) & $\sim$US\$566 \\
+GPU (inference) & $\sim$US\$25.737 \\
+\hline
+\textbf{Total on-demand} & \textbf{$\sim$US\$26.303/mês} \\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+\section{Cluster Próprio On-Premise}
+A proposta central deste projeto consiste na aquisição de infraestrutura própria composta por quatro servidores GPU de alto desempenho e blade corporativo de orquestração.
+A infraestrutura proposta é composta por:
+
 \begin{itemize}
 \item 4 servidores GPU de alto desempenho
 \item 1 blade corporativo para orquestração
@@ -115,7 +219,7 @@ Especificações principais:
 \item 4× NVIDIA GeForce RTX 4090 Gaming OC 24GB por máquina
 \end{itemize}
 
-\section{Especificação e Custo por Máquina}
+\subsection{Especificação e Custo por Máquina}
 
 \begin{table}[h]
 \centering
@@ -137,7 +241,7 @@ Infraestrutura elétrica & R\$ 8.000,00 \\
 
 \textbf{Investimento total (4 máquinas): R\$ 658.400,00.}
 
-\section{Blade Corporativo}
+\subsection{Blade Corporativo}
 
 Integração com soluções como IBM BladeCenter, Hewlett Packard Enterprise ou Dell Technologies.
 
@@ -145,7 +249,7 @@ Estimativa: R\$ 90.000,00 a R\$ 120.000,00.
 
 \textbf{Investimento total estimado do projeto: aproximadamente R\$ 750.000,00.}
 
-\section{Capacidade Operacional}
+\subsection{Capacidade Operacional}
 
 Cada servidor com quatro RTX 4090 permite aproximadamente 150 usuários simultâneos (modelo Llama3 13B) ou até 180 usuários simultâneos (modelo Llama3 7B).
 
@@ -153,28 +257,37 @@ Cluster com quatro máquinas: capacidade estimada entre 600 e 720 usuários simu
 
 Considerando simultaneidade média de 20\% a 25\% em ambiente educacional, a capacidade é adequada para atender 3.000 alunos.
 
-% -------------------------
-\chapter{Justificativa Econômica}
-
-Modelo baseado exclusivamente em APIs comerciais apresenta estimativa média de R\$ 40 por aluno/mês.
-
-Considerando 3.000 alunos durante 12 meses, o custo anual estimado é de R\$ 1.440.000,00.
-
-Modelo com cluster próprio apresenta investimento aproximado de R\$ 750.000,00, com custos recorrentes limitados a energia e manutenção.
-
 \textbf{Payback estimado: 12 meses.}
 
+
+\section{Conclusão da Análise Comparativa}
+
+Embora a abordagem com LLMs open-source self-hosted elimine o custo direto de APIs comerciais, a dependência de GPUs de alto desempenho sob demanda na AWS gera custo mensal estimado superior a US\$ 26.000.
+Em termos anuais, essa estrutura ultrapassa US\$ 315.000, mantendo dependência integral de infraestrutura cloud e variação cambial.
+Dentre todos os cenários, o da implantação do cluster próprio on-premise se destaca tanto pela amortização - que ocorre em prazo inferior a 12 meses com investimento aproximado de R\$ 750.000,00 - quanto pela comparação aos modelo baseados em APIs comerciais e ao modelo integralmente hospedado em nuvem.
+
+Vale salientar que do ponto de vista estratégico, institucional e financeiro, o modelo on-premise apresenta o melhor equilíbrio entre:
+
+\begin{itemize}
+\item Sustentabilidade econômica
+\item Independência tecnológica
+\item Capacidade de expansão futura
+\item Posicionamento institucional como referência em inovação
+\end{itemize}
+
 % -------------------------
-\chapter{Motivação da Parceria -- Visão Estratégica}
+\chapter{Parcerias para construção do Cluster On-Premisse}
 
-O projeto prevê uma identidade visual do cluster como:
+Como observado, o modelo on-premise apresenta vantagens estratégicas. Não só para a instituição, mas também para a empresa parceiras parceiras. 
+Esse capítulo elenca algumas possíveis estratégias para a criação de insentivos às parcerias.
+O projeto de infraestrutura prevê uma identidade visual do cluster como:
 
-\textit{“Cluster IA Generativa – Powered by [Empresa Parceira]”.}
+\textbf{\textit{“Cluster IA Generativa – Powered by [Empresa Parceira]”.}}
 
-A identificação ocorrerá:
+Outras abordagens convidativas está a identificação visual que ocorrerá:
 \begin{itemize}
 \item No ambiente físico
-\item No portal de APIs (descrita no item 5.2)
+\item No portal de APIs do Cluster
 \item Em comunicações institucionais
 \item Em eventos técnicos
 \end{itemize}
@@ -193,7 +306,6 @@ O portal contará com:
 \item Logotipo da empresa parceira
 \item Reconhecimento formal da parceria
 \end{itemize}
-
 
 Cada aluno terá contato recorrente com a marca durante sua formação.
 Esse mecanismo promove:
