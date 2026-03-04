@@ -1,0 +1,237 @@
+\documentclass[12pt,a4paper,]{abntex2}
+
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
+
+\input{vars.tex}
+
+\OnehalfSpacing
+
+% Permitir capítulos começarem em qualquer página
+\openany
+
+\titulo{\tituloParceria
+\\\subtituloParceria
+}
+
+\autor{
+    \empresaExecutora\\
+}
+\local{\cidade}
+\data{\ano}
+\instituicao{\auth\\
+\cargo\\
+\email
+}
+
+\tipotrabalho{}
+\preambulo{Proposta para criação de infraestrutura física para cluster de Inteligência Artificial destinada ao ensino de Desenvolvimento de Sistemas e áreas correlatas no \empresaExecutoraAbr.\\
+}
+
+\renewcommand{\sfdefault}{\rmdefault} % No serif fonts, use roman (times)
+\begin{document}
+
+% Capa
+%\imprimircapa
+
+% Folha de rosto
+\imprimirfolhaderosto*
+
+% Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\clearpage
+
+% -------------------------
+\chapter{Introdução}
+
+A Inteligência Artificial Generativa consolidou-se como elemento estrutural no processo contemporâneo de desenvolvimento de sistemas. Large Language Models (LLMs) passaram a integrar todas as etapas do ciclo de vida do software, incluindo:
+
+\begin{itemize}
+\item Levantamento e refinamento de requisitos
+\item Geração automatizada de código
+\item Criação de testes unitários
+\item Documentação técnica
+\item Revisão e refatoração de código
+\item Prototipagem rápida
+\item Desenvolvimento de APIs
+\item Automação de processos
+\item Construção de agentes inteligentes
+\end{itemize}
+
+Empresas globais incorporaram soluções baseadas em modelos de linguagem aos seus fluxos de engenharia, impactando diretamente produtividade, qualidade técnica e redução de tempo de entrega.
+
+No contexto do \empresaExecutoraAbr — instituição que atende aproximadamente 10.000 alunos por ano nas áreas de Desenvolvimento de Sistemas, Análise e Desenvolvimento de Sistemas, Tecnologia da Informação, Programação e Automação Industrial — torna-se estratégico garantir infraestrutura prática e estruturada para formação em IA generativa.
+
+Não preparar esses futuros profissionais para utilização técnica, arquitetural e estratégica dessas tecnologias significa formar especialistas desalinhados às exigências do setor produtivo.
+
+\section{Objetivos Estratégicos}
+A proposta consiste na implantação de infraestrutura própria de IA generativa para:
+
+\begin{itemize}
+\item Prover ambiente controlado para uso de LLMs open-source
+\item Reduzir dependência de APIs comerciais
+\item Permitir uso educacional ilimitado
+\item Estimular desenvolvimento de agentes e aplicações reais
+\item Promover independência tecnológica institucional
+\end{itemize}
+
+\section{Análise Comparativa de Modelos de Infraestrutura para LLM's}
+Três modelos foram avaliados:
+
+\subsection{Uso de API's comerciais}
+Dependência total de provedores externos, custo recorrente elevado e ausência de controle sobre infraestrutura e modelos.
+
+\subsection{LLM's open-source self-hosted na AWS}
+Eliminação de custo de API comercial, porém manutenção de dependência de infraestrutura cloud, variação cambial e alto custo recorrente de GPU sob demanda.
+
+\subsection{Cluster próprio on-premise}
+Infraestrutura física dedicada, com:
+\begin{itemize}
+\item Servidores GPU de alto desempenho
+\item Backend com modelos open-source
+\item Previsibilidade orçamentária
+\item Independência tecnológica
+\item Capacidade de expansão futura
+\item Posicionamento institucional como referência em inovação
+\end{itemize}
+
+Importante destacar que os valores a seguir foram calculados com base em preços médios de mercado. Uma parceria estratégica com a \empresaParceiraAbr — empresa de renome no fornecimento de componentes e soluções de hardware — pode ser decisiva.
+Mais do que aquisição de equipamentos, esta proposta representa a construção de uma parceria estruturante, capaz de posicionar conjuntamente o \empresaExecutoraAbr e a \empresaParceiraAbr na vanguarda tecnológica de Santa Catarina.
+
+\newpage
+\chapter{Cluster Próprio On-Premise: Custos e Especificações}
+\section{Especificação Técnicas}
+
+\begin{itemize}
+\item 4 servidores GPU de alto desempenho
+\item 1 blade corporativo para orquestração
+\item Balanceamento de carga
+\item Backend com LLMs open-source
+\item Portal próprio para geração de API keys
+\end{itemize}
+
+Especificações principais:
+
+\begin{itemize}
+\item 1x AMD Ryzen Threadripper PRO 7965WX
+\item 1x ASUS Pro WS WRX90E-SAGE
+\item 7× NVIDIA GeForce RTX 4090 Gaming OC 24GB por máquina
+\end{itemize}
+
+\section{Custo por Máquina}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Componente} & \textbf{Valor Estimado} \\
+\hline
+CPU & R\$ 23.000,00 \\
+Placa-mãe & R\$ 16.600,00 \\
+7 GPUs & R\$ 72.000,00 \\
+RAM 256GB & R\$ 30.000,00 \\
+Armazenamento & R\$ 15.000,00 \\
+Infraestrutura elétrica & R\$ 8.000,00 \\
+\hline
+\textbf{Total por máquina} & \textbf{R\$ 164.600,00} \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Investimento total (4 máquinas): R\$ 658.400,00.}
+
+\section{Blade Corporativo}
+
+Integração com soluções como IBM BladeCenter, Hewlett Packard Enterprise ou Dell Technologies.
+
+Estimativa: R\$ 90.000,00 a R\$ 120.000,00.
+
+\textbf{Investimento total por parte da \empresaParceiraAbr: aproximadamente R\$ 750.000,00.}
+
+\section{Capacidade Operacional estimada}
+
+\begin{itemize}
+\item 1.000 usuários simultâneos
+\item Atendimento adequado aos 10.000 alunos considerando simultaneidade média.
+\end{itemize}
+
+\section{\empresaParceiraAbr como elemento estratégico na obtenção de recursos}
+Os valores apresentados baseiam-se em preços médios praticados no mercado nacional.
+A \empresaParceiraAbr, como fabricante e fornecedora de componentes de alto desempenho, possui capacidade estratégica para:
+\begin{itemize}
+\item Reduzir custos unitários na obtenção de GPU
+\item Otimizar aquisição de placas-mãe e CPUs corporativas
+\item Fornecer memória e armazenamento em escala
+\item Apoiar tecnicamente o dimensionamento final da arquitetura
+\end{itemize}
+
+Mais do que fornecimento de peças, trata-se de coautoria tecnológica.
+
+\chapter{Marketing e Posicionamento de Marca}
+Santa Catarina é um dos polos industriais mais fortes do Brasil. O \empresaExecutoraAbr possui forte inserção no ecossistema produtivo catarinense, com relacionamento direto com indústrias, federações e setor tecnológico regional.
+São aproximadamente 10.000 alunos por ano nas áreas diretamente impactadas por IA e infraestrutura computacional de alto desempenho.
+
+\section{Posicionamento Estratégico da \empresaParceiraAbr}
+A parceria permitirá posicionar a \empresaParceiraAbr como:
+\begin{itemize}
+\item Referência estadual em hardware para IA
+\item Protagonista na formação de desenvolvedores de próxima geração
+\item Marca associada à inovação educacional
+\item Empresa comprometida com o avanço tecnológico catarinense
+\end{itemize}
+
+\section{Estratégias de Posicionamento de Maraca}
+Com base no plano original de busca por parcerias, serão implementadas as seguintes ações:
+
+\subsection{Naming do Cluster}
+\textbf{\textit{“Cluster IA Generativa – Powered by \empresaParceiraAbr ”.}}
+
+\subsection{Aplicação da marca}
+\begin{itemize}
+\item No ambiente físico do data center
+\item No portal de API keys
+\item Em dashboards técnicos
+\item Em materiais institucionais
+\item Em eventos e feiras tecnológicas
+\end{itemize}
+
+\subsection{Portal de Gerenciamento de APIs}
+Será construído um portal próprio para gerenciamento de API keys, com:
+\begin{itemize}
+\item Co-branding institucional
+\item Logotipo em área de destaque
+\item Reconhecimento formal da parceria
+\item Exposição contínua aos alunos
+\end{itemize}
+
+\subsection{Divulgação Institucional}
+Realização de evento formal de inauguração da infraestrutura, com:
+\begin{itemize}
+\item Presença da imprensa regional
+\item Representantes da indústria
+\item Lideranças educacionais
+\item Convite especial ao CEO da PICHAU para abertura oficial da estrutura
+\end{itemize}
+
+\subsection{Impacto de Longo Prazo}
+Os 10.000 alunos anuais representam futuros:
+\begin{itemize}
+\item Desenvolvedores
+\item Arquitetos de software
+\item Empreendedores
+\item Líderes técnicos
+\item Decisores de compra
+\end{itemize}
+
+A associação da marca à formação desses profissionais criará vínculo estratégico duradouro.
+
+\chapter{Considerações Finais}
+A implementação do cluster próprio de IA generativa não é apenas uma decisão técnica ou financeira. É uma decisão estratégica.
+\\A \empresaParceiraAbr aceita fazer parte deste grande desafio e assumir, conosco, o pioneirismo tecnológico de Santa Catarina?
+
+\end{document}

@@ -7,27 +7,29 @@
 \usepackage{indentfirst}
 \usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
 
+\input{vars.tex}
+
 \OnehalfSpacing
 
 % Permitir capítulos começarem em qualquer página
 \openany
 
-\titulo{IMPLEMENTAÇÃO DE CLUSTER DE INTELIGÊNCIA ARTIFICIAL GENERATIVA NO SENAI/SESI DE SC
-\\Projeto e Proposta para Parcerias
+\titulo{\tituloProjeto
+\\\subtituloProjeto
 }
 
 \autor{
-    SENAI -- Serviço Nacional de Aprendizagem Industrial\\
+    \empresaExecutora\\
 }
-\local{Joinville -- SC}
-\data{2026}
-\instituicao{Bruno José da Silva Batista\\
-Desenvolvedor de Software\\
-bruno.batista@edu.sc.senai.br
+\local{\cidade}
+\data{\ano}
+\instituicao{\auth\\
+\cargo\\
+\email
 }
 
 \tipotrabalho{}
-\preambulo{Proposta para criação de infraestrutura física para cluster de Inteligência Artificial destinada ao ensino de Desenvolvimento de Sistemas e áreas correlatas no SENAI/SESI de Santa Catarina.\\
+\preambulo{Proposta para criação de infraestrutura física para cluster de Inteligência Artificial destinada ao ensino de Desenvolvimento de Sistemas e áreas correlatas no \empresaExecutoraAbr.\\
 }
 
 \renewcommand{\sfdefault}{\rmdefault} % No serif fonts, use roman (times)
@@ -63,7 +65,7 @@ A Inteligência Artificial Generativa deixou de ser uma tecnologia emergente par
 
 Empresas globais incorporaram soluções baseadas em modelos de linguagem aos seus fluxos de engenharia, impactando produtividade, qualidade técnica e redução de tempo de entrega.
 
-Para aproximadamente 3.000 alunos do SENAI Santa Catarina nas áreas de Desenvolvimento de Sistemas, Análise e Desenvolvimento de Sistemas, Tecnologia da Informação, Programação, Automação Industrial e áreas correlatas, a ausência de infraestrutura prática voltada ao uso de IA generativa pode tornar o processo formativo defasado frente às exigências do mercado.
+Para aproximadamente 10.000 alunos do \empresaExecutoraAbr nas áreas de Desenvolvimento de Sistemas, Análise e Desenvolvimento de Sistemas, Tecnologia da Informação, Programação, Automação Industrial e áreas correlatas, a ausência de infraestrutura prática voltada ao uso de IA generativa pode tornar o processo formativo defasado frente às exigências do mercado.
 
 O desenvolvedor contemporâneo precisa saber:
 
@@ -108,7 +110,7 @@ Este capítulo apresenta análise comparativa entre três abordagens possíveis 
 \section{API's comerciais: ChatGPT, Claude, Gemini e afins}
 API's comerciais apresenta estimativa média de R\$ 40 por aluno/mês.
 
-Considerando 3.000 alunos durante 12 meses, o custo anual estimado é de R\$ 1.440.000,00.
+Considerando 10.000 alunos durante 12 meses, o custo anual estimado é de R\$ 1.440.000,00.
 
 \section{LLM's Open-Source Self-Hosted na AWS}
 
@@ -122,7 +124,7 @@ Com LLMs open-source self-hosted o custo direto de utilização de APIs comercia
 \hline
 \textbf{Variável} & \textbf{Valor} \\
 \hline
-Usuários & 3.000 \\
+Usuários & 10.000 \\
 Requests por dia por usuário & $\sim$20 \\
 Volume mensal estimado & $\sim$1,8M requests \\
 Tokens médios por request & $\sim$2.000 tokens \\
@@ -216,7 +218,7 @@ Especificações principais:
 \begin{itemize}
 \item AMD Ryzen Threadripper PRO 7965WX
 \item ASUS Pro WS WRX90E-SAGE
-\item 4× NVIDIA GeForce RTX 4090 Gaming OC 24GB por máquina
+\item 7× NVIDIA GeForce RTX 4090 Gaming OC 24GB por máquina
 \end{itemize}
 
 \subsection{Especificação e Custo por Máquina}
@@ -229,7 +231,7 @@ Especificações principais:
 \hline
 CPU & R\$ 23.000,00 \\
 Placa-mãe & R\$ 16.600,00 \\
-4 GPUs & R\$ 72.000,00 \\
+7 GPUs & R\$ 72.000,00 \\
 RAM 256GB & R\$ 30.000,00 \\
 Armazenamento & R\$ 15.000,00 \\
 Infraestrutura elétrica & R\$ 8.000,00 \\
@@ -255,7 +257,7 @@ Cada servidor com quatro RTX 4090 permite aproximadamente 150 usuários simultâ
 
 Cluster com quatro máquinas: capacidade estimada entre 600 e 720 usuários simultâneos.
 
-Considerando simultaneidade média de 20\% a 25\% em ambiente educacional, a capacidade é adequada para atender 3.000 alunos.
+Considerando simultaneidade média de 20\% a 25\% em ambiente educacional, a capacidade é adequada para atender 10.000 alunos.
 
 \textbf{Payback estimado: 12 meses.}
 
@@ -317,7 +319,7 @@ Esse mecanismo promove:
 \end{itemize}
 
 \section{Impacto de Longo Prazo}
-Os 3.000 alunos anuais representam futuros:
+Os 10.000 alunos anuais representam futuros:
 \begin{itemize}
     \item Desenvolvedores
     \item Arquitetos de software
@@ -350,7 +352,7 @@ Para a empresa parceira, o projeto oferece:
 \begin{itemize}
     \item Visibilidade estadual
     \item Associação direta com inovação
-    \item Exposição contínua a 3.000 alunos por ano
+    \item Exposição contínua a 10.000 alunos por ano
     \item Inserção no ecossistema industrial catarinense
     \item Posicionamento como protagonista em educação tecnológica
 \end{itemize}
