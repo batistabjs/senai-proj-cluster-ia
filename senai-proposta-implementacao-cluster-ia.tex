@@ -1,11 +1,9 @@
-\documentclass[10pt,a4paper,]{abntex2}
+\documentclass[12pt,a4paper,]{abntex2}
 
+\usepackage{mathptmx}
 \usepackage{amsmath}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{times}
-\usepackage{graphicx}
-\usepackage{microtype}
 \usepackage{indentfirst}
 \usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
 
@@ -14,8 +12,8 @@
 % Permitir capítulos começarem em qualquer página
 \openany
 
-\titulo{IMPLEMENTAÇÃO DE CLUSTER DE INTELIGÊNCIA ARTIFICIAL GENERATIVA NO SENAI/SESI EM SANTA CATARINA
-\\Projeto / Proposta para Parcerias
+\titulo{IMPLEMENTAÇÃO DE CLUSTER DE INTELIGÊNCIA ARTIFICIAL GENERATIVA NO SENAI/SESI DE SC
+\\Projeto e Proposta para Parcerias
 }
 
 \autor{
@@ -29,9 +27,10 @@ bruno.batista@edu.sc.senai.br
 }
 
 \tipotrabalho{}
-\preambulo{Proposta para criação de infraestrutura física para cluster de Inteligência Artificial destinada ao ensino de Desenvolvimento de Sistemas e áreas correlatas no SENAI Santa Catarina.\\
+\preambulo{Proposta para criação de infraestrutura física para cluster de Inteligência Artificial destinada ao ensino de Desenvolvimento de Sistemas e áreas correlatas no SENAI/SESI de Santa Catarina.\\
 }
 
+\renewcommand{\sfdefault}{\rmdefault} % No serif fonts, use roman (times)
 \begin{document}
 
 % Capa
@@ -44,8 +43,6 @@ bruno.batista@edu.sc.senai.br
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
 \clearpage
-
-\pagenumbering{arabic}
 
 % -------------------------
 \chapter{Introdução}
