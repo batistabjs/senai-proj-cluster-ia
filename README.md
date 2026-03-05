@@ -2,8 +2,6 @@
 
 Este repositório contém a documentação técnica e propostas de parceria para o projeto de **Cluster de IA**, desenvolvidos utilizando o sistema de tipografia LaTeX.
 
----
-
 ## Pré-requisitos
 
 Antes de iniciar, você precisará instalar as seguintes ferramentas em seu ambiente:
@@ -14,8 +12,6 @@ Antes de iniciar, você precisará instalar as seguintes ferramentas em seu ambi
 | **Perl** | Necessário para scripts de automação do LaTeX | [strawberryperl.com](https://strawberryperl.com) |
 | **MiKTeX** | Distribuição LaTeX (compilador e pacotes) | [miktex.org](https://miktex.org) |
 
----
-
 ## Configuração das Variáveis de Ambiente (PATH)
 
 Para que o compilador funcione corretamente via terminal ou VS Code, adicione os seguintes caminhos à variável `PATH` do seu usuário (substituindo `<DIR_INSTALACAO>` pelo local onde você instalou cada programa):
@@ -23,8 +19,6 @@ Para que o compilador funcione corretamente via terminal ou VS Code, adicione os
 - `<DIR_INSTALACAO>\git\bin`
 - `<DIR_INSTALACAO>\miktex\bin\x64`
 - `<DIR_INSTALACAO>\perl\bin`
-
----
 
 ## Como Gerar o PDF
 
@@ -51,16 +45,12 @@ Abra um dos arquivos principais abaixo e utilize o comando de **Build** da exten
 - `senai-proposta-parceria-cluster-ia.tex`
 - `senai-proposta-projeto-cluster-ia.tex`
 
----
-
 ## Customização de Dados
 
 Para manter a padronização e facilitar a manutenção, as informações de autoria e nomes de instituições foram centralizadas.
 
 > [!IMPORTANT]
 > Caso precise alterar o autor, instituições ou datas nos PDFs gerados, modifique apenas as variáveis contidas no arquivo: `vars.tex`
-
----
 
 ## Estrutura do Projeto
 
