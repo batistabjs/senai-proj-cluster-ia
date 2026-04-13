@@ -54,10 +54,15 @@
 % Sumário
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
-\clearpage
+
+\newpage
+\null
+
+\newpage
 
 % -------------------------
 \chapter{Introdução}
+\pagestyle{plain}
 
 A Inteligência Artificial Generativa deixou de ser uma tecnologia emergente para se tornar um componente estrutural no processo contemporâneo de desenvolvimento de sistemas. Atualmente, Large Language Models (LLMs) são empregados em todas as fases do ciclo de vida do software:
 
@@ -107,6 +112,7 @@ Implantar infraestrutura própria de IA generativa para criação de API keys ed
 \item Promover independência tecnológica institucional
 \end{itemize}
 
+\newpage
 \chapter{Análise Comparativa de Modelos de Infraestrutura para LLM's}
 
 Este capítulo apresenta análise comparativa entre três abordagens possíveis para disponibilização de Large Language Models (LLMs):
@@ -143,6 +149,7 @@ GPU necessária & EC2 G5 / P4d (NVIDIA A10G / A100) \\
 \hline
 \end{tabular}
 \end{table}
+\newpage
 
 \newpage
 \subsection{Dimensionamento de Infra de GPU e Serviços Auxiliares On-Demand}
@@ -209,6 +216,7 @@ GPU (inference) & $\sim$US\$25.737 \\
 \hline
 \end{tabular}
 \end{table}
+\newpage
 
 \newpage
 \section{Cluster Próprio On-Premise}
