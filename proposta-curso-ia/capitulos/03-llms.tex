@@ -1,0 +1,104 @@
+\chapter{Análise Comparativa de Modelos de Infraestrutura para LLM's}
+
+Este capítulo apresenta análise comparativa entre três abordagens possíveis para disponibilização de Large Language Models (LLMs):
+
+\begin{itemize}
+\item Uso de API's comerciais
+\item LLM's open-source self-hosted na AWS
+\item Cluster próprio on-premise
+\end{itemize}
+
+\section{API's comerciais: ChatGPT, Claude, Gemini e afins}
+API's comerciais apresenta estimativa média de R\$ 40 por aluno/mês.
+
+Considerando 10.000 alunos durante 12 meses, o custo anual estimado é de R\$ 1.440.000,00.
+
+\section{LLM's Open-Source Self-Hosted na AWS}
+
+Com LLMs open-source self-hosted o custo direto de utilização de APIs comerciais de modelos de linguagem é eliminado. Contudo, a utilização de GPUs sob demanda, aliada aos demais serviços da Amazon Web Services (AWS), torna a abordagem totalmente baseada em nuvem significativamente onerosa.
+
+\subsection{Demanda por Usuários}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Variável} & \textbf{Valor} \\
+\hline
+Usuários & 10.000 \\
+Requests por dia por usuário & $\sim$20 \\
+Volume mensal estimado & $\sim$1,8M requests \\
+Tokens médios por request & $\sim$2.000 tokens \\
+Custo de LLM externo & US\$ 0 \\
+GPU necessária & EC2 G5 / P4d (NVIDIA A10G / A100) \\
+\hline
+\end{tabular}
+\end{table}
+\newpage
+
+\newpage
+\subsection{Dimensionamento de Infra de GPU e Serviços Auxiliares On-Demand}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Modelo} & \textbf{VRAM necessária} & \textbf{Instância AWS} & \textbf{Throughput} \\
+\hline
+Llama 3.1 8B (leve) & $\sim$16 GB & g5.xlarge (1× A10G 24GB) & $\sim$800 tok/s \\
+Llama 3.3 70B (principal) & $\sim$140 GB & g5.48xlarge (8× A10G) & $\sim$400 tok/s \\
+DeepSeek R1 70B (distill) & $\sim$140 GB & g5.48xlarge (8× A10G) & $\sim$350 tok/s \\
+DeepSeek R1 671B (full) & $\sim$320 GB+ & p4d.24xlarge (8× A100 80GB) & $\sim$140 tok/s \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Instância} & \textbf{Uso} & \textbf{GPUs} & \textbf{Custo/h} & \textbf{Custo/mês} \\
+\hline
+g5.48xlarge ×2 & Llama 70B + DeepSeek 70B & 8× A10G cada & $\sim$US\$16,29 & $\sim$US\$24.240 \\
+g5.xlarge ×2 & Llama 8B (routing leve) & 1× A10G cada & $\sim$US\$1,006 & $\sim$US\$1.497 \\
+\hline
+\textbf{Subtotal GPU} & & & & \textbf{$\sim$US\$25.737/mês} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Serviço} & \textbf{Custo estimado/mês} \\
+\hline
+ECS Fargate (gateway) & US\$ 60 \\
+RDS PostgreSQL & US\$ 130 \\
+ElastiCache Redis & US\$ 120 \\
+API Gateway & US\$ 6 \\
+Application Load Balancer & US\$ 35 \\
+CloudWatch + Logs & US\$ 60 \\
+Secrets Manager & US\$ 5 \\
+NAT Gateway & US\$ 70 \\
+S3 (modelos + logs) & US\$ 80 \\
+\hline
+\textbf{Subtotal suporte} & \textbf{$\sim$US\$566/mês} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Categoria} & \textbf{Custo estimado/mês} \\
+\hline
+Infra base (CPU/rede/DB) & $\sim$US\$566 \\
+GPU (inference) & $\sim$US\$25.737 \\
+\hline
+\textbf{Total on-demand} & \textbf{$\sim$US\$26.303/mês} \\
+\hline
+\end{tabular}
+\end{table}
+\newpage

@@ -1,0 +1,76 @@
+\documentclass[12pt,a4paper,]{abntex2}
+
+\usepackage{mathptmx}
+\usepackage{amsmath}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage[lmargin=3cm,tmargin=3cm,rmargin=2cm,bmargin=2cm]{geometry}
+
+\input{vars.tex}
+
+\OnehalfSpacing
+
+% Permitir capítulos começarem em qualquer página
+\openany
+
+\titulo{\tituloProjeto
+\\\subtituloProjeto
+}
+
+\autor{
+    \empresaExecutora\\
+}
+\local{\cidade}
+\data{\ano}
+\instituicao{\auth\\
+\cargo\\
+\email
+}
+
+\tipotrabalho{}
+\preambulo{Proposta para criação do curso contendo detalhamentos pedagógicos com infraestrutura, funções, subfunções, capacidades, conhecimentos e unidades curriculares.\\
+}
+
+\renewcommand{\sfdefault}{\rmdefault} % No serif fonts, use roman (times)
+\begin{document}
+
+% Folha de rosto
+\pretextual
+
+\begin{folhaderosto}
+
+\begin{center}
+\includegraphics[width=5cm]{senai_logo.png}
+\end{center}
+
+\vspace{1cm}
+
+\folhaderostocontent
+
+\end{folhaderosto}
+
+% Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+
+\newpage
+\null
+
+\newpage
+\include{capitulos/01-introducao}
+\include{capitulos/02-objetivos}
+
+\newpage
+\include{capitulos/03-perfil}
+
+\newpage
+\include{capitulos/04-areas}
+\include{capitulos/04-competencias-gerais}
+\include{capitulos/05-organizacao-curricular}
+\include{capitulos/06-unidades-curriculares}
+\include{capitulos/07-conclusao}
+\include{capitulos/08-anexos}
+
+\end{document}
